@@ -49,6 +49,8 @@ int main(void)
   printf("running test_call method\n");
   r = mrb_funcall(mrb, mrb_top_self(mrb), "test_call", 0);
   printf("return value: %i\n", r.value.i);
+  mrb_value s = mrb_obj_inspect(mrb, r);
+  printf("return value: %s\n", mrb_str_to_cstr(mrb, s));
 
   mrb_close(mrb);
   return 0;
