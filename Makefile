@@ -7,4 +7,4 @@ all: smithy
 smithy: smithy.c
 		gcc $(CFLAGS) $? $(LDFLAGS) -o $@
 clean:
-		rm -f smithy *.o
+		rm -rf smithy *.o *.dSYM
