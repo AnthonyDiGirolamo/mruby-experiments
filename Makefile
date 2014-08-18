@@ -3,8 +3,10 @@ CC = gcc
 CFLAGS=-g -Imruby/include
 LDFLAGS=-lmruby -lm -Lmruby/build/host/lib
 
-all: smithy
+all: mruby/build/host/lib/libmruby.a smithy
 smithy: smithy.c
-		gcc $(CFLAGS) $? $(LDFLAGS) -o $@
+	$(CC) $(CFLAGS) $? $(LDFLAGS) -o $@
+mruby/build/host/lib/libmruby.a:
+	cd mruby; rake
 clean:
-		rm -rf smithy *.o *.dSYM
+	rm -rf smithy *.o *.dSYM
